@@ -1,4 +1,5 @@
 name: GitHub Actions Demo
+# this currently does not fun for projects (beta) https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#project_card
 on:
   project_card:
     types: [edited]
