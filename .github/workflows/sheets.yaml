@@ -4,8 +4,8 @@ name: github-project-issue-to-sheets
 # events but only for the master branch
 on:
   workflow_dispatch:
-  issues:
-    types: [opened, deleted, transferred, closed, reopened, assigned, unassigned, labeled, unlabeled]
+#  issues:
+#    types: [opened, deleted, transferred, closed, reopened, assigned, unassigned, labeled, unlabeled]
 
 jobs:
     github-project-issue-to-sheets:
