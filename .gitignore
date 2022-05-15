@@ -1,2 +1,9 @@
 .env
 credentials/*
+*.log
+*.fls
+*.aux
+*.gz
+*.fdb_latexmk
+*.toc
+*.out
