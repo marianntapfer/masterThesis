@@ -7,3 +7,4 @@ credentials/*
 *.fdb_latexmk
 *.toc
 *.out
+.DS_store
