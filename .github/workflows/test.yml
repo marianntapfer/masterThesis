@@ -3,6 +3,7 @@ name: GitHub Actions Demo
 on:
   project_card:
     types: [edited]
+    workflow_dispatch:
 jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
