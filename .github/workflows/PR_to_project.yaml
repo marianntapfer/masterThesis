@@ -10,7 +10,7 @@ jobs:
     steps:
       - name: Get project data
         env:
-          GITHUB_TOKEN: ${{ secrets.YOUR_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           user: 'marianntapfer'
           PROJECT_NUMBER: 1
         run: |
