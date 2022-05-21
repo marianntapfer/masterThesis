@@ -1,0 +1,31 @@
+{
+  "name": "masterthesis",
+  "version": "1.0.0",
+  "description": "TLU HCI master thesis on Improving accessibility by integrating automated testing to development workflow",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "project:get": "node src/gantt/github_api.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marianntapfer/masterThesis.git"
+  },
+  "keywords": [
+    "research",
+    "automated",
+    "testing",
+    "accessibility"
+  ],
+  "author": "Mariann Tapfer",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/marianntapfer/masterThesis/issues"
+  },
+  "homepage": "https://github.com/marianntapfer/masterThesis#readme",
+  "dependencies": {
+    "dotenv": "^16.0.1",
+    "follow-redirects": "^1.15.0",
+    "request": "^2.88.2"
+  }
+}

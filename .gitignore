@@ -8,3 +8,5 @@ credentials/*
 *.toc
 *.out
 .DS_store
+node_modules
+scripts/gantt
