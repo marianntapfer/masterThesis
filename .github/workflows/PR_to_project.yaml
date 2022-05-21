@@ -1,4 +1,4 @@
-name: Add PR to project
+name: Get project data
 on:
   workflow_dispatch:
   # pull_request:
@@ -11,7 +11,7 @@ jobs:
       - name: Get project data
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          user: 'marianntapfer'
+          USER: 'marianntapfer'
           PROJECT_NUMBER: 1
         run: |
           gh api graphql -f query='
