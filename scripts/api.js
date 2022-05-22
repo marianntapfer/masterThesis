@@ -44,16 +44,16 @@ let postData = JSON.stringify({
         id
         closed
         closedAt
-        fields(first:20) {
+        fields(first:25) {
             nodes {
                 id
                 name
             }
         }
-        items(first:20) {
+        items(first:30) {
             nodes {
                 title
-                fieldValues(first: 20) {
+                fieldValues(first: 25) {
                     nodes {
                         value
                         projectField {
