@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "project:get": "node src/gantt/github_api.js"
+    "project:get": "node scripts/api.js",
+    "project:make": "node scripts/make_gantt.js"
   },
   "repository": {
     "type": "git",
@@ -26,6 +27,8 @@
   "dependencies": {
     "dotenv": "^16.0.1",
     "follow-redirects": "^1.15.0",
+    "lodash": "^4.17.21",
+    "moment": "^2.29.3",
     "request": "^2.88.2"
   }
 }

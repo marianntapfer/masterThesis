@@ -1,0 +1,26 @@
+{
+    "settings": {
+        "options": [
+            {
+                "id": "0addfc00",
+                "name": "To Do :clipboard:"
+            },
+            {
+                "id": "f75ad846",
+                "name": "Planning :page_facing_up:"
+            },
+            {
+                "id": "47fc9ee4",
+                "name": "In Progress 🚧"
+            },
+            {
+                "id": "54d55924",
+                "name": "Waiting for feedback 👍  👎"
+            },
+            {
+                "id": "98236657",
+                "name": "Done :white_check_mark:"
+            }
+        ]
+    }
+}
