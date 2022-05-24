@@ -1,8 +1,9 @@
 # Timeline for HCI master thesis
 ```mermaid
+%%{init: {'theme': 'neutral'}}%%
 gantt
-    dateFormat YYYY-MM-DD
-
+dateFormat YYYY-MM-DD
+title Master thesis timeline
 
 section Master thesis proposal
 Reviewing literature :done,  I_kwDOHN4WtM5IPt0e, 2022-03-10,  2022-04-24
