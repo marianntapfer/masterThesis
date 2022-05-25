@@ -3,6 +3,7 @@
 %%{init: {'theme': 'neutral'}}%%
 gantt
 dateFormat YYYY-MM-DD
+axisFormat  %b %Y
 title Master thesis timeline
 
 section Master thesis proposal
