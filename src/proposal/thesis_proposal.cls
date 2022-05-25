@@ -12,7 +12,13 @@
 \RequirePackage{ifthen}
 
 \RequirePackage[]{times}
-\RequirePackage{graphicx} 
+\RequirePackage{graphicx}
+
+% Use biblatex for references - change style= as appropriate
+\RequirePackage[natbib=true,backend=biber,sorting=nyt,style=apa]{biblatex}
+\renewcommand*{\bibfont}{\fontsize{10}{12}\selectfont}
+% add your references to this file
+\addbibresource{refs.bib}
 
 \newcommand\school{School of Digital Technologies, Tallinn University, Estonia}
 \newcommand\doctype{Research Proposal}
@@ -31,9 +37,9 @@
         \@author\\
         \@email
     \end{tabular}\par}%
-    \school\\ 
+    \school\\
       \vskip 1.5em%
-    {\large \@date \par}%    
+    {\large \@date \par}%
 \end{center}\par
 }
 
@@ -41,8 +47,8 @@
 % \title{Research Proposal\\
 % *****}
 
-% \author{*********\\ 
-%     School of Digital Technologies, Tallinn University, Estonia\\ 
+% \author{*********\\
+%     School of Digital Technologies, Tallinn University, Estonia\\
 %     ******}
 
 
