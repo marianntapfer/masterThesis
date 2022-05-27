@@ -13,9 +13,6 @@ on:
       projectNr:
         description: 'Project number'
         required: false
-      status:
-        description: 'The result of GitHub Actions job'
-        default: ${{ job.status }} 
 
 jobs:
   test:
