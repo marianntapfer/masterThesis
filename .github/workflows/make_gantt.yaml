@@ -1,18 +1,29 @@
 name: 'Make gantt chart'
 description: 'Generates mermaid gantt chart to readme from projects'
-inputs:
-  userName:  
-    description: 'user'
-    required: false
-  projectNr:
-    description: 'Project number'
-    required: false
-  status:
-    description: 'The result of GitHub Actions job'
-    default: ${{ job.status }}  
-outputs:
-  time: 
-    description: 'Testing....'
-runs:
-  using: 'node16'
-  main: 'index.js'
+on:
+  # Triggers the workflow on push or pull request events but only for the main branch
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+    inputs:
+      userName:  
+        description: 'user'
+        required: false
+      projectNr:
+        description: 'Project number'
+        required: false
+      status:
+        description: 'The result of GitHub Actions job'
+        default: ${{ job.status }}  
+# outputs:
+#   time: 
+#     description: 'Testing....'
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    runs:
+      using: 'node16'
+      main: 'index.js'
