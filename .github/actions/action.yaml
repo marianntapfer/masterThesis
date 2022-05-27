@@ -1,0 +1,18 @@
+name: 'Make gantt chart'
+description: 'Generates mermaid gantt chart to readme from projects'
+inputs:
+  userName:  
+    description: 'user'
+    required: false
+  projectNr:
+    description: 'Project number'
+    required: false
+  status:
+    description: 'The result of GitHub Actions job'
+    default: ${{ job.status }}  
+outputs:
+  time: 
+    description: 'Testing....'
+runs:
+  using: 'node16'
+  main: 'index.js'
