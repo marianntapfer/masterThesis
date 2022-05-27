@@ -1,0 +1,26 @@
+name: 'Make gantt chart'
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+    inputs:
+      userName:  
+        description: 'user'
+        required: false
+      projectNr:
+        description: 'Project number'
+        required: false
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-node@v2
+      with:
+        node-version: '16'
+    # - run: npm run project:get
+    - run: npm run project:make
