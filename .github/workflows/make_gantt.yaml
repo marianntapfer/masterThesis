@@ -22,5 +22,5 @@ jobs:
     - uses: actions/setup-node@v2
       with:
         node-version: '16'
-    - run: npm project:get
-    - run: npm project:make
+    - run: npm run project:get
+    - run: npm run project:make
