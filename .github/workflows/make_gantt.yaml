@@ -1,5 +1,4 @@
 name: 'Make gantt chart'
-description: 'Generates mermaid gantt chart to readme from projects'
 
 on:
   push:
