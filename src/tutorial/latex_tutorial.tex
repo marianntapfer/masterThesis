@@ -1,5 +1,5 @@
 % Preamble
-\documentclass[16pt,a4paper]{article} 
+\documentclass[16pt,a4paper]{article}
 % or use the geomety package to change this
 % default size is 10px
 % {beamer} - for presentatins
@@ -11,7 +11,7 @@
 \usepackage[paperwidth=15.6cm, paperheight=20.8cm, left=23.4mm, right=10mm, top=10mm, bottom=10mm, footskip=5mm]{geometry}
 % \usepackage{amsmath, amsbsy} most used math package
 % embed jpeg png
-\usepackage{graphicx} 
+\usepackage{graphicx}
 \usepackage[]{ulem}
 % //this make all indents in the document 0
 \setlength{\parindent}{0cm}
@@ -24,12 +24,34 @@
 \newcommand{\W}{\uwave{wavy lined text \\}}
 
 
+%% Custom lists
+\usepackage[english]{babel} % To obtain English text with the blindtext package
+\usepackage{blindtext}
+
+\newcounter{questionCounter}
+
+\newenvironment{RQlist}
+  {\begin{list}
+	{RQ1: \arabic{questionCounter}}
+	{\usecounter{questionCounter}}
+	}
+{\end{list}}
+
+
 \begin{document}
+
+
 \pagebreak
 
 \W
 \W
 \W
+
+\begin{RQlist}
+	\item test
+	\item test2
+	\item küsimus 3
+\end{RQlist}
 
 \title{A very nice sample title}
 \date{April 30}
@@ -43,9 +65,9 @@ This works with JPEG, PNG, EPS, PDF\\
 \includegraphics[scale=0.4]{margins.png}\\
 \subsection{Table of contents}
 For custom tables tocloft package might be useful.
-\subsection{General} \label{sec:Mysec}
-This is a sample introduction section. 
-This is the second linne in the section. 
+\subsection{General}~\label{sec:Mysec}
+This is a sample introduction section.
+This is the second linne in the section.
 % \Large this will make all text after this large
 {\Large this will make only the text inside the brakets large}
 \textit{ this will make only the text inside the brakets italic}
@@ -64,21 +86,21 @@ This is the second linne in the section.
 
 
 And this is the Third line. \\
-This is how you change the line. 
+This is how you change the line.
 
 \section{Motivation}
-The goal of this little document is to understand how to use latex and test it out a bit before starting to write my master thesis. 
+The goal of this little document is to understand how to use latex and test it out a bit before starting to write my master thesis.
 
 % \newpage
 \pagebreak
 
 \section{Commands}
-\% is used for commenting out things in the .tex document.
+\% is used for commenting out things in the~.tex document.
 \\ at the end of the line goes to new line. \\
 Regular \emph{emphasized text}.
 \textit{This will make only the \emph{text} inside the brakets italic}\\
-\textrm{Roman text is default}\\ 
-\textsf{Sans serif is also available}\\ 
+\textrm{Roman text is default}\\
+\textsf{Sans serif is also available}\\
 \texttt{as is Typewriter – this could be used for code snippets for example}\\
 By default text is fully justified and you need a much longer paragraph to really be able to see the effect here.
 By default text is fully justified and you need a much longer paragraph to really be able to see the effect here.
@@ -99,8 +121,8 @@ By default text is fully justified and you need a much longer paragraph to reall
     This text is right aligned and you need a much longer paragraph to really be able to see the effect here.
 \end{flushright}
 
-Adding empty lines\\[\baselineskip]    
-Adding more than one empty line\\[2\baselineskip]    
+Adding empty lines\\[\baselineskip]
+Adding more than one empty line\\[2\baselineskip]
 \section{Tables and arrays}
 \subsection{Tables}
 Table environment Tabular environment
@@ -134,13 +156,13 @@ this one has three columns aligned left, centre and right\\
 \end{itemize}
 \subsection{numbered list}
 \begin{enumerate}
-    \item Apple 
+    \item Apple
     \begin{enumerate}
         \item Granny Smith
         \item Valge klaar
     \end{enumerate}
     \item Banana
-    \item Pear 
+    \item Pear
 \end{enumerate}
 
 \section{Random}
@@ -161,5 +183,30 @@ text is centre aligned and you \hrulefill\\need a much longer paragraph to reall
     \rule{3cm}{2mm}
 \end{center}
 
+\section{custom list}
+% \begin{enumerate}[start=1,label={(\bfseries R\arabic*):}]
+% 	\item This is
+% 	\item an easy
+% 	\item customization of enumerate
+% \end{enumerate}
+\begin{itemize}
+	\item[RQ:] Text of your description goes here...
+	\item List entries start with the \verb|\item| command.
+	\item Individual entries are indicated with a black dot, a so-called bullet.
+	\item The text in the entries may be of any length.
+\end{itemize}
+\begin{enumerate}
+	\item Items are numbered automatically.
+	\item The numbers start at 1 with each use of the \texttt{enumerate} environment.
+	\item Another entry in the list
+\end{enumerate}
+
+Adding more than one empty line\\[2\baselineskip]
+
+\begin{description}
+   \item This is an entry \textit{without} a label.
+   \item[Something short] A short one-line description.
+   \item[Something long] A much longer description. \blindtext[1]
+\end{description}
 
 \end{document}
