@@ -1,12 +1,30 @@
-name: Gantt
+name: 'Make gantt chart'
+description: 'Generates mermaid gantt chart to readme from projects'
+
 on:
   push:
     branches: [ main ]
   pull_request:
     branches: [ main ]
   workflow_dispatch:
+    inputs:
+      userName:  
+        description: 'user'
+        required: false
+      projectNr:
+        description: 'Project number'
+        required: false
+      status:
+        description: 'The result of GitHub Actions job'
+        default: ${{ job.status }} 
+
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/action
+    - uses: actions/checkout@v2
+    - uses: actions/setup-node@v2
+      with:
+        node-version: '16'
+    - run: npm project:get
+    - run: npm project:make
