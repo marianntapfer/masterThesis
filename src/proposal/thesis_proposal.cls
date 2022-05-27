@@ -15,6 +15,7 @@
 \RequirePackage{graphicx}
 
 % Use biblatex for references - change style= as appropriate
+% needed to switch to backend=bibtex and then back to biber
 \RequirePackage[natbib=true,backend=biber,sorting=nyt,style=apa]{biblatex}
 \renewcommand*{\bibfont}{\fontsize{10}{12}\selectfont}
 % add your references to this file
@@ -42,6 +43,15 @@
     {\large \@date \par}%
 \end{center}\par
 }
+
+% custom command for listing research questions
+\newcounter{questionCounter}
+\newenvironment{RQlist}
+{\begin{list}
+	{\textbf{RQ\arabic{questionCounter}:}}
+	{\usecounter{questionCounter}}
+}
+{\end{list}}
 
 
 % \title{Research Proposal\\

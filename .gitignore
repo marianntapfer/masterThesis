@@ -11,6 +11,7 @@ credentials/*
 *.bcf
 *.blg
 *.run.xml
+*blx.bib
 .DS_store
 node_modules
 scripts/gantt
