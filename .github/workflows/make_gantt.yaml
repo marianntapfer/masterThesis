@@ -24,6 +24,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    runs:
-      using: 'node16'
-      main: 'index.js'
+    steps:
+      - runs:
+        using: 'node16'
+        main: 'index.js'
