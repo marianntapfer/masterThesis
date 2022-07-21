@@ -7,82 +7,106 @@ const user = "marianntapfer";
 const filePath = "scripts/data/project.json";
 
 let options = {
-	method: "POST",
-	hostname: "api.github.com",
-	path: "/graphql",
-	headers: {
-		Authorization: `Bearer ${github_token}`,
-		"Content-Type": "application/json",
-		Cookie: "_octo=GH1.1.1334685627.1652968470; logged_in=no",
-		"User-Agent": "PostmanRuntime/7.29.0",
-	},
+  method: "POST",
+  hostname: "api.github.com",
+  path: "/graphql",
+  headers: {
+    Authorization: `Bearer ${github_token}`,
+    "Content-Type": "application/json",
+    Cookie: "_octo=GH1.1.1334685627.1652968470; logged_in=no",
+    "User-Agent": "PostmanRuntime/7.29.0",
+  },
 };
 
 const req = https.request(options, (res) => {
-	let chunks = [];
+  let chunks = [];
 
-	res.on("data", (chunk) => {
-		chunks.push(chunk);
-	});
+  res.on("data", (chunk) => {
+    chunks.push(chunk);
+  });
 
-	res.on("end", (chunk) => {
-		let body = Buffer.concat(chunks);
-		// console.log(body.toString());
-		fs.writeFileSync("scripts/data/project.json", body.toString());
-		console.log("wrote project data indata/project.json");
-	});
+  res.on("end", (chunk) => {
+    let body = Buffer.concat(chunks);
+    // console.log(body.toString());
+    fs.writeFileSync("scripts/data/project.json", body.toString());
+    console.log("wrote project data indata/project.json");
+  });
 
-	res.on("error", (error) => {
-		console.error(error);
-	});
+  res.on("error", (error) => {
+    console.error(error);
+  });
 });
 
 let postData = JSON.stringify({
-	query: `query($user: String!, $number: Int!) {
-    user(login: $user){
-    projectNext(number: $number) {
+  query: `query User($login: String!, $number: Int!, $itemsFirst: Int, $fieldValuesFirst: Int, $fieldsFirst: Int) {
+    user(login: $login) {
+      projectNext(number: $number) {
         id
-        closed
-        closedAt
-        fields(first:25) {
-            nodes {
+        items(first: $itemsFirst) {
+          totalCount
+          nodes {
+            title
+            content {
+              ... on Issue {
                 id
-                name
-            }
-        }
-        items(first:30) {
-            nodes {
-                title
-                fieldValues(first: 25) {
-                    nodes {
-                        value
-                        projectField {
-                            name
-                            id
-                        }
-                    }
+                number
+                url
+                milestone {
+                  id
+                  title
+                  dueOn
                 }
-
-                content {
-                    ... on Issue {
-                    closed
-                    closedAt
-                    id
-                    milestone {
-                        title
-                        id
-                        dueOn
-                        state
-                    }
-
+              }
+            }
+            fieldValues(first: $fieldValuesFirst) {
+              totalCount
+              nodes {
+                value
+                id
+                projectField {
+                  name
+                  id
+                  dataType
+                }
+                databaseId
+                projectItem {
+                  title
                 }
               }
             }
           }
+          edges {
+            node {
+              content {
+                ... on Issue {
+                  id
+                  number
+                  title
+                  url
+                }
+              }
+            }
+          }
+        }
+        fields(first: $fieldsFirst) {
+          totalCount
+          nodes {
+            id
+            name
+            settings
+            dataType
+          }
+        }
+      }
     }
-    }
-}`,
-	variables: { number: projectNumber, user: user },
+  }`,
+  variables: {
+    login: "marianntapfer",
+    number: 1,
+    itemsFirst: 30,
+    fieldValuesFirst: 10,
+    fieldsFirst: 15,
+  },
 });
 
 req.write(postData);
